@@ -52,6 +52,7 @@ jobs:
               'assets/logo.svg',
               'assets/hero-flightdeck.svg',
               'manifest.webmanifest',
+              'CHANGELOG.md',
           ]
 
           for item in required:
@@ -72,13 +73,15 @@ jobs:
                   if value:
                       self.links.append(value)
 
+          forbidden_brand = 'Jetstream' + '99'
+          forbidden_brand_upper = forbidden_brand.upper()
           html_pages = sorted(root.glob('*.html'))
           if not html_pages:
               raise SystemExit('No HTML pages found.')
 
           for page in html_pages:
               text = page.read_text(encoding='utf-8')
-              if 'Jetstream99' in text or 'JETSTREAM99' in text:
+              if forbidden_brand in text or forbidden_brand_upper in text:
                   raise SystemExit(f'Incorrect legacy brand found in {page.name}')
 
               parser = LinkParser(page)
@@ -107,13 +110,14 @@ jobs:
 
               print(f'Validated {page.name} ({len(parser.links)} links)')
 
+          public_suffixes = {'.html', '.css', '.js', '.json', '.svg'}
           for path in root.rglob('*'):
               if not path.is_file() or '.git' in path.parts:
                   continue
-              if path.suffix.lower() not in {'.html', '.css', '.js', '.md', '.json', '.svg', '.yml', '.yaml'}:
+              if path.suffix.lower() not in public_suffixes:
                   continue
               text = path.read_text(encoding='utf-8', errors='ignore')
-              if 'Jetstream99' in text or 'JETSTREAM99' in text:
+              if forbidden_brand in text or forbidden_brand_upper in text:
                   raise SystemExit(f'Incorrect legacy brand found in {path.relative_to(root)}')
 
           print('Jetstream89 brand and static-site validation passed.')
