@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Configure local Jetstream89 preferences and review the project history.">
+  <meta name="theme-color" content="#05070b">
+  <title>Station Studio — Jetstream89</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@600;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="./assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/styles.css">
+  <link rel="stylesheet" href="./assets/v2.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <a class="brand" href="./index.html" aria-label="Jetstream89 home"><img src="./assets/logo.svg" alt=""><span class="brand__word">JETSTREAM<strong>89</strong><em>v2</em></span></a>
+      <nav class="nav-group" aria-label="Station">
+        <span class="nav-label" data-i18n="nav.station">Station</span>
+        <a class="nav-link" href="./index.html"><span class="nav-icon">⌂</span><span data-i18n="nav.home">Home</span></a>
+        <a class="nav-link" href="./schedule.html"><span class="nav-icon">◷</span><span data-i18n="nav.schedule">Schedule</span></a>
+        <a class="nav-link" href="./stories.html"><span class="nav-icon">▤</span><span data-i18n="nav.stories">Rock Stories</span></a>
+        <a class="nav-link" href="./atlas.html"><span class="nav-icon">◎</span><span data-i18n="nav.atlas">Rock Atlas</span></a>
+        <a class="nav-link nav-link--new" href="./crew.html"><span class="nav-icon">✦</span><span data-i18n="nav.crew">Flight Crew</span></a>
+        <a class="nav-link nav-link--new" href="./merch.html"><span class="nav-icon">◆</span><span data-i18n="nav.merch">Merch Lab</span></a>
+        <a class="nav-link nav-link--new" aria-current="page" href="./studio.html"><span class="nav-icon">⚙</span><span data-i18n="nav.studio">Station Studio</span></a>
+      </nav>
+      <div class="sidebar-card"><strong>Version <span data-current-version>2.0.0</span></strong><small>Transparent settings, integration readiness, rights notes and project history.</small></div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <a class="ghost-button" href="./index.html" data-i18n="common.back">Back to station</a>
+        <div class="topbar__meta"><span class="clock"><span data-i18n="top.station">Station</span> <strong id="station-clock">--:--</strong></span><span>•</span><span class="clock"><span data-i18n="top.local">Local</span> <strong id="local-clock">--:--</strong></span></div>
+        <div class="topbar__actions"><div class="language-switcher" aria-label="Language"><button type="button" data-locale="en" aria-pressed="true">EN</button><button type="button" data-locale="es" aria-pressed="false">ES</button></div><button class="pill-button" type="button" data-action="toggle-cinema" aria-pressed="false" data-i18n="top.cinema">Cinema mode</button></div>
+      </header>
+
+      <main class="content" id="content">
+        <section class="hero hero--v2 page-hero--compact" aria-labelledby="studio-page-title">
+          <div class="hero__copy"><span class="live-chip live-chip--demo"><span class="pulse-dot"></span>Local cockpit control</span><h1 id="studio-page-title" style="font-size:clamp(3rem,7vw,6.2rem)"><span data-i18n="studio.pageTitle">Jetstream89 Station Studio</span></h1><p class="hero__description" data-i18n="studio.pageIntro">A transparent control deck for personal preferences, integration readiness and the evolution of the project.</p><div class="flight-strip"><span class="flight-stat"><strong data-current-version>2.0.0</strong><small>Interface version</small></span><span class="flight-stat"><strong>EN / ES</strong><small>Languages</small></span><span class="flight-stat"><strong>LOCAL</strong><small>Preference storage</small></span><span class="flight-stat"><strong>DEMO</strong><small>Stream state</small></span></div></div>
+          <div class="hero__art hero__art--flightdeck"><img src="./assets/hero-flightdeck.svg" alt="Original Jetstream89 neon flightdeck illustration"></div>
+        </section>
+
+        <section class="section" aria-labelledby="settings-title">
+          <div class="section__header"><div><span class="eyebrow" data-i18n="studio.eyebrow">Station Studio</span><h2 id="settings-title" data-i18n="studio.title">Personalize your cockpit</h2><p data-i18n="studio.description">Language, motion, contrast, density and local station preferences live in your browser.</p></div></div>
+          <div class="studio-grid">
+            <article class="studio-card"><h3>Display & accessibility</h3><div class="settings-form"><label class="settings-row"><span><strong data-i18n="settings.motion">Reduced motion</strong><small class="muted">Reduce decorative animation in this browser.</small></span><input class="toggle" id="setting-motion" type="checkbox"></label><label class="settings-row"><span><strong data-i18n="settings.contrast">High contrast</strong><small class="muted">Increase secondary-text and border contrast.</small></span><input class="toggle" id="setting-contrast" type="checkbox"></label><label class="settings-row"><span><strong data-i18n="settings.density">Compact density</strong><small class="muted">Use tighter spacing for information-dense screens.</small></span><input class="toggle" id="setting-density" type="checkbox"></label><label class="settings-row"><span><strong data-i18n="settings.autosave">Remember cockpit settings</strong><small class="muted">Keep these preferences in localStorage.</small></span><input class="toggle" id="setting-remember" type="checkbox" checked></label></div><div class="control-row"><button class="primary-button" id="save-station-settings" type="button" data-i18n="common.save">Save settings</button><button class="ghost-button" id="reset-station-settings" type="button" data-i18n="common.reset">Reset local data</button></div></article>
+
+            <article class="studio-card"><h3 data-i18n="settings.privacy">Local privacy</h3><p data-i18n="settings.privacyText">These controls use localStorage only. They do not create a Jetstream89 account or send settings to a server.</p><div class="notice">Stored locally: interface language, display preferences, taste-profile prototype, Top 7 demo vote, request drafts and merch-interest concepts.</div></article>
+
+            <article class="studio-card"><h3 data-i18n="settings.rights">Music rights</h3><p data-i18n="settings.rightsText">Spotify playback remains inside official embeds. A real synchronized radio stream will require authorized audio and a licensed stream provider.</p><div class="tag-list"><span>Spotify embeds</span><span>Icecast-ready</span><span>AzuraCast-ready</span><span>No audio extraction</span></div></article>
+
+            <article class="studio-card"><h3>Integration status</h3><div class="schedule-mini"><div class="schedule-mini__item"><time>READY</time><strong>GitHub Pages</strong><small>Static deployment workflow</small></div><div class="schedule-mini__item"><time>READY</time><strong>Spotify embeds</strong><small>Official playback only</small></div><div class="schedule-mini__item"><time>CONFIG</time><strong>Live radio stream</strong><small>Needs legal HTTPS stream URL</small></div><div class="schedule-mini__item"><time>FUTURE</time><strong>Accounts & backend</strong><small>Requires database and authentication</small></div></div></article>
+
+            <article class="studio-card"><h3>Public links</h3><p>Only confirmed public links are connected. Unknown social accounts are intentionally not invented.</p><div class="social-row"><a href="https://github.com/LiriothTeltanion/Jetstream89" target="_blank" rel="noopener noreferrer">GitHub repository</a><a href="https://open.spotify.com/user/rodrijack36" target="_blank" rel="noopener noreferrer">Jack on Spotify</a></div></article>
+
+            <article class="studio-card"><h3>Next infrastructure layer</h3><p>A future full-stack release can add Next.js, TypeScript, PostgreSQL, authentication, roles, real requests, schedules and integration logs. GitHub Pages remains the fast, free and reliable public prototype.</p><div class="tag-list"><span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>Supabase</span><span>AzuraCast</span></div></article>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="history-title">
+          <div class="section__header"><div><span class="eyebrow">Changelog</span><h2 id="history-title" data-i18n="settings.version">Version history</h2><p>Every major feature remains visible instead of disappearing inside a redesign.</p></div></div>
+          <div class="version-timeline">
+            <article class="version-item"><span class="version-badge">v2.0</span><div><h3>Flight Crew expansion</h3><p>Bilingual EN/ES layer, host profiles, original browser-synth station ident, Merch Lab, Station Studio, local settings, richer navigation and original flightdeck artwork.</p></div></article>
+            <article class="version-item"><span class="version-badge">v1.1</span><div><h3>Spotify/TIDAL-inspired cockpit</h3><p>Persistent demo player, official Spotify embeds, schedule, Rock Stories, Rock Atlas, local voting, requests, taste radar, search and GitHub Pages deployment.</p></div></article>
+            <article class="version-item"><span class="version-badge">v1.0</span><div><h3>Brand foundation</h3><p>Jetstream89 identity, Turn Up. Take Flight. tagline, neon winged microphone, 80s/90s rock focus and the Jack Rodríguez + Kevin Cusnir hosting concept.</p></div></article>
+            <article class="version-item"><span class="version-badge">NEXT</span><div><h3>Licensed live-radio architecture</h3><p>Authorized audio, AzuraCast or Icecast stream, Now Playing API, moderation, user accounts, bilingual CMS and transparent analytics.</p></div></article>
+          </div>
+        </section>
+
+        <footer class="footer"><div class="footer-grid"><div><a class="brand" href="./index.html"><img src="./assets/logo.svg" alt=""><span class="brand__word">JETSTREAM<strong>89</strong></span></a><p>Turn Up. Take Flight.</p></div><div><h4 data-i18n="footer.explore">Explore</h4><p><a href="./schedule.html">Schedule</a><br><a href="./stories.html">Rock Stories</a><br><a href="./atlas.html">Rock Atlas</a></p></div><div><h4 data-i18n="footer.station">Station</h4><p><a href="./crew.html">Flight Crew</a><br><a href="./merch.html">Merch Lab</a><br>Rights & licensing</p></div><div><h4 data-i18n="footer.credits">Credits</h4><p>Hosted by Jack Rodríguez & Kevin Cusnir.<br>Website by Kevin Cusnir.</p></div></div></footer>
+      </main>
+    </div>
+  </div>
+
+  <div class="player" role="region" aria-label="Persistent Jetstream89 player"><div class="player__track"><div class="player__art">✈</div><div><strong>Jetstream89 Engine Test</strong><small id="stream-status">Demo mode · stream not connected</small></div></div><div class="player__controls"><button class="icon-button" type="button" aria-label="Previous demo item">‹</button><button class="player__play" type="button" data-action="toggle-stream" aria-label="Play Jetstream89"><span data-play-icon>▶</span></button><button class="icon-button" type="button" aria-label="Next demo item">›</button></div><div class="player__extras"><span>Volume</span><input id="volume" type="range" min="0" max="1" step="0.05" value="0.75" aria-label="Volume"></div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div><audio id="radio-audio" preload="none"></audio><script src="./assets/app.js" defer></script><script src="./assets/v2.js" defer></script>
+</body>
+</html>
