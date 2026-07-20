@@ -1,0 +1,79 @@
+name: Deploy Jetstream89 to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate JavaScript syntax
+        run: node --check assets/app.js
+
+      - name: Validate required static files
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          root = Path('.')
+          required = [
+              'index.html',
+              'schedule.html',
+              'stories.html',
+              'atlas.html',
+              '404.html',
+              'assets/styles.css',
+              'assets/app.js',
+              'assets/logo.svg',
+              'manifest.webmanifest',
+          ]
+
+          for item in required:
+              if not (root / item).exists():
+                  raise SystemExit(f'Missing required file: {item}')
+
+          class Parser(HTMLParser):
+              pass
+
+          for page in root.glob('*.html'):
+              parser = Parser()
+              parser.feed(page.read_text(encoding='utf-8'))
+              print(f'Validated {page}')
+          PY
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: validate
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
