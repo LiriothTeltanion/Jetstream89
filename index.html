@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Jetstream89 is a human-curated online rock radio concept hosted by Jack Rodríguez and Kevin Cusnir: 80s, 90s, hard rock, heavy metal, progressive music, ballads, and new discoveries.">
+  <meta name="theme-color" content="#05070b">
+  <meta property="og:title" content="Jetstream89 — Turn Up. Take Flight.">
+  <meta property="og:description" content="A retro-futurist online rock radio experience by Jack Rodríguez and Kevin Cusnir.">
+  <meta property="og:type" content="website">
+  <title>Jetstream89 — Turn Up. Take Flight.</title>
+  <link rel="icon" href="./assets/logo.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <a class="brand" href="./index.html" aria-label="Jetstream89 home">
+        <img src="./assets/logo.svg" alt="">
+        <span class="brand__word">JETSTREAM<strong>89</strong></span>
+      </a>
+
+      <nav class="nav-group" aria-label="Station">
+        <span class="nav-label">Station</span>
+        <a class="nav-link" aria-current="page" href="./index.html"><span class="nav-icon">⌂</span>Home</a>
+        <a class="nav-link" href="./schedule.html"><span class="nav-icon">◷</span>Schedule</a>
+        <a class="nav-link" href="./stories.html"><span class="nav-icon">▤</span>Rock Stories</a>
+        <a class="nav-link" href="./atlas.html"><span class="nav-icon">◎</span>Rock Atlas</a>
+      </nav>
+
+      <nav class="nav-group" aria-label="Your routes">
+        <span class="nav-label">Your routes</span>
+        <a class="nav-link" href="#routes"><span class="nav-icon">⚡</span>Heavy Route</a>
+        <a class="nav-link" href="#routes"><span class="nav-icon">◈</span>Progressive</a>
+        <a class="nav-link" href="#routes"><span class="nav-icon">✦</span>80s &amp; 90s</a>
+        <a class="nav-link" href="#taste"><span class="nav-icon">✧</span>Taste Engine</a>
+      </nav>
+
+      <div class="sidebar-card">
+        <strong>Flight Crew beta</strong>
+        <small>Save your taste profile and Top 7 vote locally. No account or private data leaves your browser.</small>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <label class="search">
+          <span aria-hidden="true">⌕</span>
+          <input id="global-search" type="search" placeholder="Search shows, genres, stories…" aria-label="Search Jetstream89">
+        </label>
+
+        <div class="topbar__meta" aria-label="Clocks">
+          <span class="clock">Station <strong id="station-clock">--:--</strong></span>
+          <span aria-hidden="true">•</span>
+          <span class="clock">Local <strong id="local-clock">--:--</strong></span>
+        </div>
+
+        <div class="topbar__actions">
+          <button class="pill-button" type="button" data-action="toggle-cinema" aria-pressed="false">Cinema mode</button>
+          <button class="icon-button" type="button" data-action="toggle-stream" aria-label="Play Jetstream89"><span data-play-icon>▶</span></button>
+        </div>
+      </header>
+
+      <main class="content" id="content">
+        <div id="search-result" class="empty-state" hidden></div>
+
+        <section class="hero" aria-labelledby="hero-title" data-searchable>
+          <div class="hero__copy">
+            <span class="live-chip live-chip--demo"><span class="pulse-dot"></span>Preview signal · launch build</span>
+            <h1 id="hero-title">JETSTREAM<span>89</span></h1>
+            <p class="hero__tagline">Turn Up. <strong>Take Flight.</strong></p>
+            <p class="hero__description">
+              A human-curated online radio universe for 80s and 90s rock, hard rock, heavy metal,
+              progressive journeys, deep cuts, power ballads, alternative, electronic crosswinds,
+              and discoveries that deserve a louder signal.
+            </p>
+            <div class="hero__actions">
+              <button class="primary-button primary-button--pink" type="button" data-action="toggle-stream">
+                <span data-play-icon>▶</span> <span data-play-label>Play</span> Jetstream89
+              </button>
+              <a class="ghost-button" href="#listen">Listen with Spotify</a>
+              <a class="ghost-button" href="./schedule.html">Explore schedule</a>
+            </div>
+            <p class="hero__credits">Hosted and developed by <strong>Jack Rodríguez &amp; Kevin Cusnir</strong> · Online radio concept · Not a terrestrial FM frequency.</p>
+          </div>
+          <div class="hero__art" aria-hidden="true">
+            <img src="./assets/logo.svg" alt="">
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="now-title">
+          <div class="section__header">
+            <div>
+              <span class="eyebrow">The Cockpit</span>
+              <h2 id="now-title">Now on your radar</h2>
+              <p>A Spotify/TIDAL-inspired cockpit with honest stream states, local time, and a persistent player.</p>
+            </div>
+            <a class="link-action" href="./schedule.html">Full schedule →</a>
+          </div>
+
+          <div class="now-grid">
+            <article class="panel now-panel" data-searchable>
+              <div class="now-panel__art" aria-hidden="true">✈</div>
+              <div>
+                <span class="live-chip live-chip--demo"><span class="pulse-dot"></span>Demo mode</span>
+                <h3>Jetstream89 Engine Test</h3>
+                <p class="muted">Connect a legal Icecast or AzuraCast URL to turn this interface into the real station player.</p>
+                <div class="meta-row">
+                  <span class="meta-chip">128 kbps MP3 ready</span>
+                  <span class="meta-chip">Asia/Jerusalem</span>
+                  <span class="meta-chip">Persistent player</span>
+                </div>
+                <div class="meter" aria-hidden="true"><span></span></div>
+                <div class="control-row">
+                  <button class="primary-button" type="button" data-action="toggle-stream"><span data-play-icon>▶</span> Test player</button>
+                  <a class="ghost-button" href="#requests">Request a track</a>
+                </div>
+              </div>
+            </article>
+
+            <aside class="panel" data-searchable>
+              <span class="eyebrow">Up next</span>
+              <h3>Progressive Altitude</h3>
+              <p class="muted">Long-form progressive rock and metal, concept albums, odd meters, and stories behind ambitious records.</p>
+              <div class="schedule-mini">
+                <div class="schedule-mini__item"><time>18:00</time><strong>Jetstream Prime</strong><small>Live flagship</small></div>
+                <div class="schedule-mini__item"><time>22:00</time><strong>Metal Afterburner</strong><small>Heavy route</small></div>
+                <div class="schedule-mini__item"><time>02:00</time><strong>Midnight Landing</strong><small>Ballads &amp; atmosphere</small></div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section" id="routes" aria-labelledby="routes-title">
+          <div class="section__header">
+            <div>
+              <span class="eyebrow">Made for Jetstreamers</span>
+              <h2 id="routes-title">Choose your flight path</h2>
+              <p>Distinct routes instead of one endless generic playlist.</p>
+            </div>
+          </div>
+
+          <div class="shelf" aria-label="Music routes">
+            <article class="card" style="--card-accent:#ff2ea6" data-searchable>
+              <div class="card__art"><span class="card__icon">🎸</span></div><button class="card__play" data-action="toggle-stream" aria-label="Play 80s Arena Rock">▶</button>
+              <h3>80s Arena Rock</h3><p>Huge choruses, polished guitars, neon stages, and highway anthems.</p>
+            </article>
+            <article class="card" style="--card-accent:#27d9ff" data-searchable>
+              <div class="card__art"><span class="card__icon">📼</span></div><button class="card__play" data-action="toggle-stream" aria-label="Play 90s Alternative">▶</button>
+              <h3>90s Alternative</h3><p>Grunge, alternative metal, industrial edges, and post-grunge gravity.</p>
+            </article>
+            <article class="card" style="--card-accent:#ff6b3d" data-searchable>
+              <div class="card__art"><span class="card__icon">🔥</span></div><button class="card__play" data-action="toggle-stream" aria-label="Play Metal Afterburner">▶</button>
+              <h3>Metal Afterburner</h3><p>Heavy, power, classic, melodic, and selected extreme-metal turbulence.</p>
+            </article>
+            <article class="card" style="--card-accent:#aa72ff" data-searchable>
+              <div class="card__art"><span class="card__icon">🌀</span></div><button class="card__play" data-action="toggle-stream" aria-label="Play Progressive Altitude">▶</button>
+              <h3>Progressive Altitude</h3><p>Concept albums, suites, odd meters, and patient musical exploration.</p>
+            </article>
+            <article class="card" style="--card-accent:#ffc857" data-searchable>
+              <div class="card__art"><span class="card__icon">🌙</span></div><button class="card__play" data-action="toggle-stream" aria-label="Play Midnight Landing">▶</button>
+              <h3>Midnight Landing</h3><p>Power ballads, melodic rock, late-night requests, and softer landings.</p>
+            </article>
+            <article class="card" style="--card-accent:#50e69a" data-searchable>
+              <div class="card__art"><span class="card__icon">📡</span></div><button class="card__play" data-action="toggle-stream" aria-label="Play Crosswind">▶</button>
+              <h3>Crosswind</h3><p>Synth-pop, electronic, industrial, rap, hip-hop, and genre collisions.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="listen" aria-labelledby="listen-title">
+          <div class="section__header">
+            <div>
+              <span class="eyebrow">Official Spotify embeds</span>
+              <h2 id="listen-title">Real music, official playback</h2>
+              <p>These players come from Spotify. Jetstream89 does not extract or rebroadcast Spotify audio.</p>
+            </div>
+          </div>
+
+          <div class="embed-tabs" role="tablist" aria-label="Spotify playlists">
+            <button class="embed-tab is-active" type="button" data-spotify-playlist="classics" role="tab">Rock Classics</button>
+            <button class="embed-tab" type="button" data-spotify-playlist="eighties" role="tab">All Out 80s</button>
+            <button class="embed-tab" type="button" data-spotify-playlist="nineties" role="tab">All Out 90s</button>
+          </div>
+          <div class="spotify-embed">
+            <iframe id="spotify-frame" title="Rock Classics on Spotify" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWXRqgorJj26U?utm_source=generator&theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+        </section>
+
+        <section class="section" id="taste" aria-labelledby="taste-title">
+          <div class="section__header">
+            <div>
+              <span class="eyebrow">Nova Music Lab</span>
+              <h2 id="taste-title">Your music identity never stops evolving</h2>
+              <p>A privacy-friendly local prototype inspired by your Spotify + Last.fm profile research.</p>
+            </div>
+          </div>
+
+          <div class="taste-grid">
+            <article class="panel taste-panel" data-searchable>
+              <h3>Set your coordinates</h3>
+              <p class="muted">Choose the routes that represent you. The profile stays only in this browser.</p>
+              <div class="choice-grid">
+                <label class="choice"><input type="checkbox" value="92" data-taste-axis="0">Heavy Metal</label>
+                <label class="choice"><input type="checkbox" value="84" data-taste-axis="1">Hard Rock</label>
+                <label class="choice"><input type="checkbox" value="76" data-taste-axis="2">Progressive</label>
+                <label class="choice"><input type="checkbox" value="70" data-taste-axis="3">80s</label>
+                <label class="choice"><input type="checkbox" value="74" data-taste-axis="4">90s</label>
+                <label class="choice"><input type="checkbox" value="58" data-taste-axis="5">Electronic</label>
+              </div>
+              <button id="save-taste" class="primary-button" type="button">Save taste profile</button>
+              <div class="notice">Local prototype only. No Spotify or Last.fm account is accessed, and no personal history is uploaded.</div>
+            </article>
+
+            <article class="panel radar" aria-label="Taste profile visualization">
+              <svg viewBox="0 0 420 420" role="img" aria-labelledby="radar-title radar-desc">
+                <title id="radar-title">Jetstream89 music taste radar</title>
+                <desc id="radar-desc">A six-axis radar graph for heavy metal, hard rock, progressive, 80s, 90s, and electronic music.</desc>
+                <g fill="none" stroke="rgba(39,217,255,.22)" stroke-width="1.5">
+                  <polygon points="210,42 355,126 355,294 210,378 65,294 65,126"/>
+                  <polygon points="210,84 319,147 319,273 210,336 101,273 101,147"/>
+                  <polygon points="210,126 283,168 283,252 210,294 137,252 137,168"/>
+                  <polygon points="210,168 247,189 247,231 210,252 173,231 173,189"/>
+                  <line x1="210" y1="42" x2="210" y2="378"/><line x1="65" y1="126" x2="355" y2="294"/><line x1="355" y1="126" x2="65" y2="294"/>
+                </g>
+                <polygon id="taste-polygon" points="210,154 258,182 258,238 210,266 162,238 162,182" fill="rgba(255,46,166,.28)" stroke="#27d9ff" stroke-width="4"/>
+                <g fill="#f7f8fb" font-size="14" font-weight="800">
+                  <text x="210" y="25" text-anchor="middle">Heavy</text><text x="382" y="117" text-anchor="middle">Hard Rock</text><text x="382" y="313" text-anchor="middle">Progressive</text><text x="210" y="408" text-anchor="middle">80s</text><text x="38" y="313" text-anchor="middle">90s</text><text x="38" y="117" text-anchor="middle">Electronic</text>
+                </g>
+              </svg>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="top7-title">
+          <div class="section__header">
+            <div>
+              <span class="eyebrow">Top 7 at 7</span>
+              <h2 id="top7-title">Cast a demo vote</h2>
+              <p>One local vote per browser. Titles are fictional until the station has a licensed public chart.</p>
+            </div>
+          </div>
+          <div class="panel vote-list">
+            <div class="vote-row" data-searchable><span class="vote-row__rank">1</span><span><strong>Afterburner Anthem</strong><small>Heavy Route · demo title</small></span><button class="vote-button" type="button" data-vote="Afterburner Anthem">Vote</button></div>
+            <div class="vote-row" data-searchable><span class="vote-row__rank">2</span><span><strong>Neon Runway</strong><small>80s Arena Rock · demo title</small></span><button class="vote-button" type="button" data-vote="Neon Runway">Vote</button></div>
+            <div class="vote-row" data-searchable><span class="vote-row__rank">3</span><span><strong>Progressive Horizon</strong><small>Progressive Altitude · demo title</small></span><button class="vote-button" type="button" data-vote="Progressive Horizon">Vote</button></div>
+            <div id="vote-notice" class="notice">Voting is a local interface demonstration and does not represent public results.</div>
+          </div>
+        </section>
+
+        <section class="section" id="requests" aria-labelledby="request-title">
+          <div class="section__header">
+            <div>
+              <span class="eyebrow">Requests &amp; dedications</span>
+              <h2 id="request-title">Send a local demo request</h2>
+              <p>The form validates and stores a draft in your browser. It does not promise playback or send data to a public queue.</p>
+            </div>
+          </div>
+          <form class="panel" id="request-form">
+            <div class="grid-2">
+              <label>Name<input name="name" required maxlength="60" autocomplete="name"></label>
+              <label>Song<input name="song" required maxlength="100"></label>
+              <label>Artist<input name="artist" required maxlength="100"></label>
+              <label>Preferred show<select name="show"><option>The Rock Drive</option><option>Jetstream Control</option><option>Metal Afterburner</option><option>Progressive Altitude</option><option>Midnight Landing</option></select></label>
+            </div>
+            <label style="display:grid;gap:8px;margin-top:14px">Message<textarea name="message" maxlength="500" rows="5"></textarea></label>
+            <div class="control-row"><button class="primary-button primary-button--pink" type="submit">Save demo request</button></div>
+            <div class="notice">A production request system needs moderation, rate limits, a privacy policy, and confirmed music-rights rules.</div>
+          </form>
+        </section>
+
+        <section class="section" aria-labelledby="hosts-title">
+          <div class="section__header">
+            <div>
+              <span class="eyebrow">The Hangar</span>
+              <h2 id="hosts-title">Human-curated by Jack &amp; Kevin</h2>
+              <p>Technology keeps the signal reliable. The taste, stories, interviews, and editorial judgment stay human.</p>
+            </div>
+          </div>
+          <div class="host-grid">
+            <article class="host-card" style="--accent:#ff6b3d" data-searchable><div class="host-avatar">JR</div><div><h3>Jack Rodríguez</h3><p>The Rock Drive, guest relations, interviews, and classic-rock storytelling.</p></div></article>
+            <article class="host-card" style="--accent:#27d9ff" data-searchable><div class="host-avatar">KC</div><div><h3>Kevin Cusnir</h3><p>Jetstream Control, technology, discovery, visual identity, and Nova Music Lab.</p></div></article>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <div class="footer-grid">
+            <div><a class="brand" href="./index.html"><img src="./assets/logo.svg" alt=""><span class="brand__word">JETSTREAM<strong>89</strong></span></a><p>Rock, metal, culture, and discovery across generations. Turn Up. Take Flight.</p></div>
+            <div><h4>Explore</h4><p><a href="./schedule.html">Schedule</a><br><a href="./stories.html">Rock Stories</a><br><a href="./atlas.html">Rock Atlas</a></p></div>
+            <div><h4>Station</h4><p>Editorial policy<br>Community rules<br>Rights &amp; licensing<br>Service status</p></div>
+            <div><h4>Credits</h4><p>Hosted by Jack Rodríguez &amp; Kevin Cusnir.<br>Website by Kevin Cusnir.<br>Spotify playback uses official embeds.</p></div>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <div class="player" role="region" aria-label="Persistent Jetstream89 player">
+    <div class="player__track"><div class="player__art">✈</div><div><strong>Jetstream89 Engine Test</strong><small id="stream-status">Demo mode · stream not connected</small></div></div>
+    <div class="player__controls"><button class="icon-button" type="button" aria-label="Previous demo item">‹</button><button class="player__play" type="button" data-action="toggle-stream" aria-label="Play Jetstream89"><span data-play-icon>▶</span></button><button class="icon-button" type="button" aria-label="Next demo item">›</button></div>
+    <div class="player__extras"><span>Volume</span><input id="volume" type="range" min="0" max="1" step="0.05" value="0.75" aria-label="Volume"></div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <audio id="radio-audio" preload="none"></audio>
+  <script src="./assets/app.js" defer></script>
+</body>
+</html>

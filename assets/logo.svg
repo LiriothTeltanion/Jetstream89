@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">Jetstream89 winged microphone</title>
+  <desc id="desc">A neon broadcast microphone with aerodynamic wings and a small aircraft tail.</desc>
+  <defs>
+    <linearGradient id="cyanPink" x1="0" x2="1">
+      <stop offset="0" stop-color="#27d9ff"/>
+      <stop offset="1" stop-color="#ff2ea6"/>
+    </linearGradient>
+    <linearGradient id="pinkOrange" y1="0" y2="1">
+      <stop offset="0" stop-color="#ff2ea6"/>
+      <stop offset="1" stop-color="#ff6b3d"/>
+    </linearGradient>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+    <path d="M278 275 62 194l54 78 137 57" stroke="url(#cyanPink)" stroke-width="26"/>
+    <path d="M362 275 578 194l-54 78-137 57" stroke="url(#cyanPink)" stroke-width="26"/>
+    <path d="M245 306 118 267" stroke="#ff2ea6" stroke-width="14"/>
+    <path d="M395 306 522 267" stroke="#ff2ea6" stroke-width="14"/>
+    <rect x="258" y="92" width="124" height="292" rx="62" fill="#07101b" stroke="url(#pinkOrange)" stroke-width="20"/>
+    <path d="M283 146h74M283 187h74M283 228h74M283 269h74" stroke="#ff2ea6" stroke-width="16"/>
+    <path d="M225 312v31c0 65 42 107 95 107s95-42 95-107v-31" stroke="#27d9ff" stroke-width="20"/>
+    <path d="M320 450v83M272 538h96" stroke="#ff6b3d" stroke-width="20"/>
+    <path d="M288 533 256 572h64M352 533l32 39h-64" stroke="#27d9ff" stroke-width="15"/>
+  </g>
+</svg>
