@@ -1,17 +1,45 @@
 {
-  "name": "Jetstream89",
+  "name": "Jetstream89 — Turn Up. Take Flight.",
   "short_name": "Jetstream89",
-  "description": "A retro-futurist online rock radio experience by Jack Rodríguez and Kevin Cusnir.",
+  "description": "A bilingual retro-futurist online rock radio experience by Jack Rodríguez and Kevin Cusnir.",
+  "lang": "en",
+  "dir": "ltr",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "any",
   "background_color": "#05070b",
   "theme_color": "#05070b",
+  "categories": ["music", "entertainment", "education"],
   "icons": [
     {
       "src": "./assets/logo.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Schedule",
+      "short_name": "Schedule",
+      "description": "Open the Jetstream89 program schedule.",
+      "url": "./schedule.html",
+      "icons": [{"src": "./assets/logo.svg", "sizes": "any", "type": "image/svg+xml"}]
+    },
+    {
+      "name": "Flight Crew",
+      "short_name": "Crew",
+      "description": "Meet hosts Jack Rodríguez and Kevin Cusnir.",
+      "url": "./crew.html",
+      "icons": [{"src": "./assets/logo.svg", "sizes": "any", "type": "image/svg+xml"}]
+    },
+    {
+      "name": "Station Studio",
+      "short_name": "Studio",
+      "description": "Configure local Jetstream89 preferences.",
+      "url": "./studio.html",
+      "icons": [{"src": "./assets/logo.svg", "sizes": "any", "type": "image/svg+xml"}]
     }
   ]
 }
