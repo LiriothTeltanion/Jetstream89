@@ -1,32 +1,57 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
-  <title id="title">Jetstream89 winged microphone</title>
-  <desc id="desc">A neon broadcast microphone with aerodynamic wings and a small aircraft tail.</desc>
+  <title id="title">Jetstream89 winged microphone radar emblem</title>
+  <desc id="desc">A neon broadcast microphone with aerodynamic wings, an aircraft tail, radar rings and an integrated number 89.</desc>
   <defs>
     <linearGradient id="cyanPink" x1="0" x2="1">
-      <stop offset="0" stop-color="#27d9ff"/>
-      <stop offset="1" stop-color="#ff2ea6"/>
+      <stop offset="0" stop-color="#33ddff"/>
+      <stop offset="0.5" stop-color="#6e8cff"/>
+      <stop offset="1" stop-color="#ff3eb5"/>
     </linearGradient>
     <linearGradient id="pinkOrange" y1="0" y2="1">
-      <stop offset="0" stop-color="#ff2ea6"/>
-      <stop offset="1" stop-color="#ff6b3d"/>
+      <stop offset="0" stop-color="#ff3eb5"/>
+      <stop offset="1" stop-color="#ff7847"/>
     </linearGradient>
+    <radialGradient id="badge" cx="50%" cy="45%" r="58%">
+      <stop offset="0" stop-color="#14213b"/>
+      <stop offset="0.68" stop-color="#080d18"/>
+      <stop offset="1" stop-color="#03050a"/>
+    </radialGradient>
     <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="9" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
+
+  <circle cx="320" cy="320" r="292" fill="url(#badge)" stroke="url(#cyanPink)" stroke-width="8"/>
+  <circle cx="320" cy="320" r="258" fill="none" stroke="#33ddff" stroke-opacity=".18" stroke-width="3" stroke-dasharray="8 16"/>
+  <circle cx="320" cy="320" r="218" fill="none" stroke="#ff3eb5" stroke-opacity=".13" stroke-width="2"/>
+  <path d="M320 62V578M62 320H578" stroke="#33ddff" stroke-opacity=".08" stroke-width="2"/>
+  <path d="M320 320 505 150" stroke="#33ddff" stroke-opacity=".18" stroke-width="5" stroke-linecap="round"/>
+
+  <text x="320" y="390" text-anchor="middle" fill="none" stroke="#ff3eb5" stroke-opacity=".17" stroke-width="6" font-family="Arial Black, sans-serif" font-size="272" font-style="italic" font-weight="900">89</text>
+
   <g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
-    <path d="M278 275 62 194l54 78 137 57" stroke="url(#cyanPink)" stroke-width="26"/>
-    <path d="M362 275 578 194l-54 78-137 57" stroke="url(#cyanPink)" stroke-width="26"/>
-    <path d="M245 306 118 267" stroke="#ff2ea6" stroke-width="14"/>
-    <path d="M395 306 522 267" stroke="#ff2ea6" stroke-width="14"/>
-    <rect x="258" y="92" width="124" height="292" rx="62" fill="#07101b" stroke="url(#pinkOrange)" stroke-width="20"/>
-    <path d="M283 146h74M283 187h74M283 228h74M283 269h74" stroke="#ff2ea6" stroke-width="16"/>
-    <path d="M225 312v31c0 65 42 107 95 107s95-42 95-107v-31" stroke="#27d9ff" stroke-width="20"/>
-    <path d="M320 450v83M272 538h96" stroke="#ff6b3d" stroke-width="20"/>
-    <path d="M288 533 256 572h64M352 533l32 39h-64" stroke="#27d9ff" stroke-width="15"/>
+    <path d="M278 276 67 198l53 73 132 55" stroke="url(#cyanPink)" stroke-width="25"/>
+    <path d="M362 276 573 198l-53 73-132 55" stroke="url(#cyanPink)" stroke-width="25"/>
+    <path d="M249 307 128 269M391 307l121-38" stroke="#ff3eb5" stroke-width="13"/>
+    <path d="M229 277 146 244M411 277l83-33" stroke="#33ddff" stroke-width="8" opacity=".78"/>
+
+    <rect x="260" y="104" width="120" height="278" rx="60" fill="#06101c" stroke="url(#pinkOrange)" stroke-width="19"/>
+    <path d="M285 153h70M285 193h70M285 233h70M285 273h70" stroke="#ff3eb5" stroke-width="15"/>
+    <path d="M294 128c11-9 41-9 52 0" stroke="#33ddff" stroke-width="8" opacity=".9"/>
+
+    <path d="M229 316v28c0 63 40 104 91 104s91-41 91-104v-28" stroke="#33ddff" stroke-width="19"/>
+    <path d="M320 448v79M276 531h88" stroke="#ff7847" stroke-width="19"/>
+    <path d="M290 527 259 565h61M350 527l31 38h-61" stroke="#33ddff" stroke-width="14"/>
+  </g>
+
+  <g filter="url(#softGlow)">
+    <circle cx="320" cy="62" r="7" fill="#33ddff"/>
+    <circle cx="578" cy="320" r="6" fill="#ff3eb5"/>
+    <circle cx="320" cy="578" r="5" fill="#ff7847"/>
   </g>
 </svg>
