@@ -1,0 +1,17 @@
+{
+  "name": "Jetstream89",
+  "short_name": "Jetstream89",
+  "description": "A retro-futurist online rock radio experience by Jack Rodríguez and Kevin Cusnir.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#05070b",
+  "theme_color": "#05070b",
+  "icons": [
+    {
+      "src": "./assets/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
