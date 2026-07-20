@@ -1,7 +1,9 @@
-name: Deploy Jetstream89 to GitHub Pages
+name: Validate and deploy Jetstream89 to GitHub Pages
 
 on:
   push:
+    branches: [main]
+  pull_request:
     branches: [main]
   workflow_dispatch:
 
@@ -11,7 +13,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -22,24 +24,33 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Validate JavaScript syntax
-        run: node --check assets/app.js
+        run: |
+          node --check assets/app.js
+          node --check assets/v2.js
 
-      - name: Validate required static files
+      - name: Validate static files, HTML and local links
         run: |
           python - <<'PY'
           from html.parser import HTMLParser
           from pathlib import Path
+          from urllib.parse import urlsplit
 
-          root = Path('.')
+          root = Path('.').resolve()
           required = [
               'index.html',
               'schedule.html',
               'stories.html',
               'atlas.html',
+              'crew.html',
+              'merch.html',
+              'studio.html',
               '404.html',
               'assets/styles.css',
+              'assets/v2.css',
               'assets/app.js',
+              'assets/v2.js',
               'assets/logo.svg',
+              'assets/hero-flightdeck.svg',
               'manifest.webmanifest',
           ]
 
@@ -47,16 +58,69 @@ jobs:
               if not (root / item).exists():
                   raise SystemExit(f'Missing required file: {item}')
 
-          class Parser(HTMLParser):
-              pass
+          class LinkParser(HTMLParser):
+              def __init__(self, page: Path) -> None:
+                  super().__init__()
+                  self.page = page
+                  self.links: list[str] = []
 
-          for page in root.glob('*.html'):
-              parser = Parser()
-              parser.feed(page.read_text(encoding='utf-8'))
-              print(f'Validated {page}')
+              def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+                  if tag not in {'a', 'img', 'link', 'script', 'iframe'}:
+                      return
+                  attributes = dict(attrs)
+                  value = attributes.get('href') or attributes.get('src')
+                  if value:
+                      self.links.append(value)
+
+          html_pages = sorted(root.glob('*.html'))
+          if not html_pages:
+              raise SystemExit('No HTML pages found.')
+
+          for page in html_pages:
+              text = page.read_text(encoding='utf-8')
+              if 'Jetstream99' in text or 'JETSTREAM99' in text:
+                  raise SystemExit(f'Incorrect legacy brand found in {page.name}')
+
+              parser = LinkParser(page)
+              parser.feed(text)
+
+              for raw_link in parser.links:
+                  link = raw_link.strip()
+                  if not link or link.startswith(('#', 'mailto:', 'tel:', 'javascript:', 'data:')):
+                      continue
+                  split = urlsplit(link)
+                  if split.scheme or split.netloc:
+                      continue
+
+                  relative = split.path
+                  if not relative:
+                      continue
+
+                  target = (page.parent / relative).resolve()
+                  try:
+                      target.relative_to(root)
+                  except ValueError as exc:
+                      raise SystemExit(f'Local link escapes repository in {page.name}: {link}') from exc
+
+                  if not target.exists():
+                      raise SystemExit(f'Broken local link in {page.name}: {link}')
+
+              print(f'Validated {page.name} ({len(parser.links)} links)')
+
+          for path in root.rglob('*'):
+              if not path.is_file() or '.git' in path.parts:
+                  continue
+              if path.suffix.lower() not in {'.html', '.css', '.js', '.md', '.json', '.svg', '.yml', '.yaml'}:
+                  continue
+              text = path.read_text(encoding='utf-8', errors='ignore')
+              if 'Jetstream99' in text or 'JETSTREAM99' in text:
+                  raise SystemExit(f'Incorrect legacy brand found in {path.relative_to(root)}')
+
+          print('Jetstream89 brand and static-site validation passed.')
           PY
 
   deploy:
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
