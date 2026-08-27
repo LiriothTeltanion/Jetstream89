@@ -428,21 +428,6 @@ h3,
     linear-gradient(145deg, #0a1020, #13081d);
 }
 
-.merch-art::before {
-  content: attr(data-icon);
-  font-size: 5.4rem;
-  filter: drop-shadow(0 0 24px var(--merch-accent, var(--flight-pink)));
-}
-
-.merch-art::after {
-  content: "JETSTREAM89";
-  position: absolute;
-  bottom: 15px;
-  color: white;
-  font: 900 0.78rem/1 "JetBrains Mono", monospace;
-  letter-spacing: 0.18em;
-}
-
 .merch-card__body {
   padding: 20px;
 }
