@@ -5,13 +5,13 @@
   <meta name="description" content="Jetstream89 Rock Stories: original editorial concepts about rock history, technology, scenes, albums and culture."><meta name="theme-color" content="#05070b">
   <title>Rock Stories — Jetstream89</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@600;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="./assets/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="./assets/styles.css"><link rel="stylesheet" href="./assets/v2.css">
+  <link rel="icon" href="./assets/logo-route89.png" type="image/png"><link rel="stylesheet" href="./assets/styles.css"><link rel="stylesheet" href="./assets/v2.css">
 </head>
 <body>
 <a class="skip-link" href="#content">Skip to content</a>
 <div class="app-shell">
   <aside class="sidebar">
-    <a class="brand" href="./index.html"><img src="./assets/logo.svg" alt=""><span class="brand__word">JETSTREAM<strong>89</strong><em>v2</em></span></a>
+    <a class="brand" href="./index.html"><img src="./assets/logo-route89.png" alt=""><span class="brand__word">JETSTREAM<strong>89</strong><em>v2</em></span></a>
     <nav class="nav-group"><span class="nav-label" data-i18n="nav.station">Station</span><a class="nav-link" href="./index.html"><span class="nav-icon">⌂</span><span data-i18n="nav.home">Home</span></a><a class="nav-link" href="./schedule.html"><span class="nav-icon">◷</span><span data-i18n="nav.schedule">Schedule</span></a><a class="nav-link" aria-current="page" href="./stories.html"><span class="nav-icon">▤</span><span data-i18n="nav.stories">Rock Stories</span></a><a class="nav-link" href="./atlas.html"><span class="nav-icon">◎</span><span data-i18n="nav.atlas">Rock Atlas</span></a><a class="nav-link nav-link--new" href="./crew.html"><span class="nav-icon">✦</span><span data-i18n="nav.crew">Flight Crew</span></a><a class="nav-link nav-link--new" href="./merch.html"><span class="nav-icon">◆</span><span data-i18n="nav.merch">Merch Lab</span></a><a class="nav-link nav-link--new" href="./studio.html"><span class="nav-icon">⚙</span><span data-i18n="nav.studio">Station Studio</span></a></nav>
     <div class="sidebar-card"><strong>The Black Box</strong><small>Editorial archives, chapters, sources, transcripts and corrections will live here.</small></div>
   </aside>
@@ -31,9 +31,35 @@
       <section class="section section--featured"><div class="ident-console"><div><span class="eyebrow" data-i18n="ident.eyebrow">Original station ident</span><h2 data-i18n="ident.title">Hear the Jetstream89 signal</h2><p data-i18n="ident.description">A short original browser-synth ident. It uses no copyrighted recording and never starts without your click.</p><div class="ident-buttons"><button class="ident-button" type="button" data-ident="launch" data-i18n="ident.launch">Launch ident</button><button class="ident-button" type="button" data-ident="night" data-i18n="ident.night">Night-flight ident</button><button class="ident-button" type="button" data-ident="stop" data-i18n="ident.stop">Stop sound</button></div></div><div class="ident-visualizer" id="ident-visualizer" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></section>
       <section class="section"><div class="panel"><span class="eyebrow">Editorial promise</span><h2>Sources, corrections and rights first</h2><p class="muted">Published episodes should include show notes, chapter markers, source links, clear opinion labels, correction history, guest consent and rights-safe media. Music-heavy archives need a properly licensed destination rather than ordinary podcast feeds.</p></div></section>
       <section class="section"><div class="callout-band"><div><span class="eyebrow">The people behind the stories</span><h2>Jack Rodríguez & Kevin Cusnir</h2><p class="muted">See the roles, routes and editorial strengths of the Jetstream89 Flight Crew.</p></div><a class="primary-button" href="./crew.html" data-i18n="crew.full">Open full crew profiles</a></div></section>
-      <footer class="footer"><div class="footer-grid"><div><a class="brand" href="./index.html"><img src="./assets/logo.svg" alt=""><span class="brand__word">JETSTREAM<strong>89</strong></span></a><p>Stories behind the sound.</p></div><div><h4>Explore</h4><p><a href="./schedule.html">Schedule</a><br><a href="./atlas.html">Rock Atlas</a><br><a href="./crew.html">Flight Crew</a></p></div><div><h4>Formats</h4><p>Interviews<br>Listening guides<br>Production explainers</p></div><div><h4>Standards</h4><p>Sources<br>Corrections<br>Guest consent<br>Rights-safe media</p></div></div></footer>
+      <footer class="footer"><div class="footer-grid"><div><a class="brand" href="./index.html"><img src="./assets/logo-route89.png" alt=""><span class="brand__word">JETSTREAM<strong>89</strong></span></a><p>Stories behind the sound.</p></div><div><h4>Explore</h4><p><a href="./schedule.html">Schedule</a><br><a href="./atlas.html">Rock Atlas</a><br><a href="./crew.html">Flight Crew</a></p></div><div><h4>Formats</h4><p>Interviews<br>Listening guides<br>Production explainers</p></div><div><h4>Standards</h4><p>Sources<br>Corrections<br>Guest consent<br>Rights-safe media</p></div></div></footer>
     </main>
   </div>
 </div>
-<div class="player"><div class="player__track"><div class="player__art">✈</div><div><strong>Jetstream89 Engine Test</strong><small id="stream-status">Demo mode · stream not connected</small></div></div><div class="player__controls"><button class="icon-button">‹</button><button class="player__play" data-action="toggle-stream"><span data-play-icon>▶</span></button><button class="icon-button">›</button></div><div class="player__extras"><span>Volume</span><input id="volume" type="range" min="0" max="1" step="0.05" value="0.75"></div></div><div class="toast" id="toast" role="status" aria-live="polite"></div><audio id="radio-audio"></audio><script src="./assets/app.js" defer></script><script src="./assets/v2.js" defer></script>
+  <div class="player" role="region" aria-label="Persistent Jetstream89 player">
+    <div class="player__track">
+      <div class="player__art">
+        <canvas id="audio-visualizer" width="40" height="40" style="position:absolute; inset:0; pointer-events:none;"></canvas>
+        <span style="position:relative; z-index:2;">✈</span>
+      </div>
+      <div>
+        <strong>Jetstream89 Engine Test</strong>
+        <small id="stream-status">Demo mode · stream not connected</small>
+      </div>
+    </div>
+    <div class="player__controls">
+      <button class="icon-button" type="button" data-action="skip-back" aria-label="Skip back 15s">↺</button>
+      <button class="icon-button" type="button" aria-label="Previous demo item">‹</button>
+      <button class="player__play" type="button" data-action="toggle-stream" aria-label="Play Jetstream89">
+        <span data-play-icon>▶</span>
+      </button>
+      <button class="icon-button" type="button" aria-label="Next demo item">›</button>
+      <button class="icon-button" type="button" data-action="skip-forward" aria-label="Skip forward 15s">↻</button>
+    </div>
+    <div class="player__extras">
+      <button class="icon-button" type="button" data-action="toggle-mute" aria-label="Mute">🔊</button>
+      <span>Volume</span>
+      <input id="volume" type="range" min="0" max="1" step="0.05" value="0.75" aria-label="Volume">
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div><audio id="radio-audio"></audio><script src="./assets/app.js" defer></script><script src="./assets/v2.js" defer></script>
 </body></html>
