@@ -192,6 +192,8 @@ https://liriothteltanion.github.io/Jetstream89/
 - **Product, visual identity and development:** Kevin Cusnir
 - **Creative signature:** Lirioth Teltanion
 
+Built with AI-assisted tooling; Kevin reviewed, tested and can explain every change.
+
 ## 📄 License
 
 Software in this repository is released under the [MIT License](LICENSE). Music, artist identities, platform brands, trademarks and third-party content remain subject to their respective rights.
