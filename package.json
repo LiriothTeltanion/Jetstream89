@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node --watch-path=. --watch-preserve-output server.js",
     "build": "echo 'No build required for static site'",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "node --test"
   },
   "dependencies": {
     "@google/genai": "^2.31.0",

@@ -2,6 +2,13 @@
 
 All notable Jetstream89 changes are recorded here. The project follows a simple semantic-versioning direction while it remains a prototype.
 
+## Listening Desk - 2026-11-12
+
+- Open the official Spotify player on request, with direct playlist links available without JavaScript.
+- Filter six listening routes and keep favorites on the current browser.
+- Filter the editorial schedule by station weekday or genre and display it in the visitor's time zone.
+- Explore four illustrated product concepts and add or remove browser-local merch interest.
+
 ## [2.0.0] - 2026-07-21
 
 ### Added
