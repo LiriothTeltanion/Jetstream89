@@ -16,6 +16,7 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="stylesheet" href="./assets/styles.css">
   <link rel="stylesheet" href="./assets/v2.css">
+  <link rel="stylesheet" href="./assets/station-frontpage.css">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -46,39 +47,106 @@
       <header class="topbar">
         <label class="search"><span aria-hidden="true">⌕</span><input id="global-search" type="search" data-i18n-placeholder="search.placeholder" placeholder="Search shows, genres, stories…" aria-label="Search Jetstream89"></label>
         <div class="topbar__meta" aria-label="Clocks"><span class="clock"><span data-i18n="top.station">Station</span> <strong id="station-clock">--:--</strong></span><span aria-hidden="true">•</span><span class="clock"><span data-i18n="top.local">Local</span> <strong id="local-clock">--:--</strong></span></div>
-        <div class="topbar__actions"><div class="language-switcher" aria-label="Language"><button type="button" data-locale="en" aria-pressed="true">EN</button><button type="button" data-locale="es" aria-pressed="false">ES</button></div><button class="pill-button" type="button" data-action="toggle-cinema" aria-pressed="false" data-i18n="top.cinema">Cinema mode</button><button class="icon-button" type="button" data-action="toggle-stream" aria-label="Play Jetstream89"><span data-play-icon>▶</span></button></div>
+        <div class="topbar__actions"><div class="language-switcher" aria-label="Language"><button type="button" data-locale="en" aria-pressed="true">EN</button><button type="button" data-locale="es" aria-pressed="false">ES</button></div><button class="pill-button" type="button" data-action="toggle-cinema" aria-pressed="false" data-i18n="top.cinema">Cinema mode</button><button class="icon-button" type="button" data-action="toggle-stream" aria-label="Open Jetstream89 listening options"><span data-play-icon>▶</span></button></div>
       </header>
 
       <main class="content" id="content">
         <div id="search-result" class="empty-state" hidden></div>
+        <nav class="station-quicklinks" aria-label="Explore Jetstream89">
+          <a href="#listen" data-i18n="station.listen">Listen</a>
+          <a href="./schedule.html" data-i18n="nav.schedule">Schedule</a>
+          <a href="./atlas.html" data-i18n="nav.atlas">Rock Atlas</a>
+          <a href="./crew.html" data-i18n="nav.crew">Flight Crew</a>
+        </nav>
 
-        <section class="hero hero--v2" aria-labelledby="hero-title" data-searchable>
+        <section class="hero hero--v2 station-hero" aria-labelledby="hero-title" data-searchable>
+          <picture class="station-hero__image" aria-hidden="true">
+            <source media="(max-width: 650px)" srcset="./assets/station-booth-mobile.webp" type="image/webp">
+            <source srcset="./assets/station-booth.webp" type="image/webp">
+            <img src="./assets/hero-flightdeck.svg" alt="" width="1440" height="960" fetchpriority="high">
+          </picture>
           <div class="hero__copy">
-            <span class="live-chip live-chip--demo"><span class="pulse-dot"></span><span data-i18n="hero.status">Preview signal · Flight Crew v2</span></span>
+            <p class="station-hero__eyebrow" data-i18n="station.eyebrow">Independent rock radio</p>
             <h1 id="hero-title">JETSTREAM<span>89</span></h1>
             <p class="hero__tagline" data-i18n="hero.tagline">Turn Up. Take Flight.</p>
-            <p class="hero__description" data-i18n="hero.description">A human-curated online rock universe for 80s and 90s rock, hard rock, heavy metal, progressive journeys, deep cuts, power ballads, alternative crosswinds and discoveries that deserve a louder signal.</p>
-            <div class="hero__actions"><button class="primary-button primary-button--pink" type="button" data-action="toggle-stream"><span data-play-icon>▶</span> <span data-play-label data-i18n="hero.play">Play Jetstream89</span></button><a class="ghost-button" href="#listen" data-i18n="hero.spotify">Listen with Spotify</a><a class="ghost-button" href="./schedule.html" data-i18n="hero.schedule">Explore schedule</a></div>
-            <p class="hero__credits" data-i18n="hero.credits">Hosted by Jack Rodríguez & Kevin Cusnir · Online radio concept · Not a terrestrial FM frequency.</p>
-            <div class="flight-strip"><span class="flight-stat"><strong>CURATED</strong><small data-i18n="stats.mode">Curated online radio</small></span><span class="flight-stat"><strong>EN / ES</strong><small data-i18n="stats.languages">English + Spanish</small></span><span class="flight-stat"><strong>JRS</strong><small data-i18n="stats.timezone">Asia/Jerusalem</small></span><span class="flight-stat"><strong>LEGAL</strong><small data-i18n="stats.rights">Official embeds only</small></span></div>
+            <p class="hero__description" data-i18n="station.intro">From arena rock and 90s alternative to metal, progressive and deep cuts, selected by Jack Rodríguez and Kevin Cusnir.</p>
+            <div class="hero__actions">
+              <a class="primary-button station-hero__listen" href="#listen"><span aria-hidden="true">▶</span> <span data-i18n="hero.spotify">Listen with Spotify</span></a>
+              <a class="ghost-button" href="#station-ident" data-i18n="station.ident">Hear our station ident</a>
+            </div>
+            <p class="hero__credits" data-i18n="station.preview">Station preview · English and Spanish</p>
           </div>
-          <div class="hero__art hero__art--flightdeck"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80" style="border-radius: 50%; aspect-ratio: 1; object-fit: cover; filter: drop-shadow(0 0 20px rgba(39, 217, 255, 0.5));" alt="Neon flightdeck illustration"><div class="hero__signal"><small>Station status</small><strong>DEMO ONLINE</strong><span class="muted">Version <span data-current-version>2.0.0</span></span></div></div>
         </section>
 
-        <div class="marquee-shell" aria-hidden="true"><div class="marquee-track"><span>Heavy Metal</span><span>Hard Rock</span><span>Classic Rock</span><span>Progressive</span><span>80s</span><span>90s</span><span>Power Ballads</span><span>Alternative</span><span>Electronic</span><span>Music History</span><span>Heavy Metal</span><span>Hard Rock</span><span>Classic Rock</span><span>Progressive</span><span>80s</span><span>90s</span><span>Power Ballads</span><span>Alternative</span><span>Electronic</span><span>Music History</span></div></div>
-
-        <section class="section section--featured" aria-labelledby="ident-title">
+        <section class="section section--featured" id="station-ident" aria-labelledby="ident-title">
           <div class="ident-console"><div><span class="eyebrow" data-i18n="ident.eyebrow">Original station ident</span><h2 id="ident-title" data-i18n="ident.title">Hear the Jetstream89 signal</h2><p data-i18n="ident.description">A short original browser-synth ident. It uses no copyrighted recording and never starts without your click.</p><div class="ident-buttons"><button class="ident-button" type="button" data-ident="launch" data-i18n="ident.launch">Launch ident</button><button class="ident-button" type="button" data-ident="night" data-i18n="ident.night">Night-flight ident</button><button class="ident-button" type="button" data-ident="stop" data-i18n="ident.stop">Stop sound</button></div></div><div class="ident-visualizer" id="ident-visualizer" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
         </section>
 
         <section class="section" aria-labelledby="now-title">
           <div class="section__header"><div><span class="eyebrow">The Cockpit</span><h2 id="now-title">Now on your radar</h2><p>A Spotify/TIDAL-inspired cockpit with honest stream states, local time and a persistent player.</p></div><a class="link-action" href="./schedule.html">Full schedule →</a></div>
-          <div class="now-grid"><article class="panel now-panel" data-searchable><div class="now-panel__art" aria-hidden="true"><img class="card__img" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=400&q=80" alt=""></div><div><span class="live-chip live-chip--demo"><span class="pulse-dot"></span><span data-i18n="common.demo">Demo mode</span></span><h3>Jetstream89 Engine Test</h3><p class="muted">The custom player is in demo mode. Scroll down to the Spotify section to listen to full free rock playlists on loop.</p><div class="meta-row"><span class="meta-chip">128 kbps MP3 ready</span><span class="meta-chip">Asia/Jerusalem</span><span class="meta-chip">Persistent player</span></div><div class="meter" aria-hidden="true"><span></span></div><div class="control-row"><a class="primary-button" href="#listen"><span data-play-icon>▶</span> Listen via Spotify</a><a class="ghost-button" href="#requests">Request a track</a></div></div></article><aside class="panel" data-searchable><span class="eyebrow">Up next</span><h3>Progressive Altitude</h3><p class="muted">Long-form progressive rock and metal, concept albums, odd meters and stories behind ambitious records.</p><div class="schedule-mini"><div class="schedule-mini__item"><time>18:00</time><strong>Jetstream Prime</strong><small>Flagship show</small></div><div class="schedule-mini__item"><time>22:00</time><strong>Metal Afterburner</strong><small>Heavy route</small></div><div class="schedule-mini__item"><time>02:00</time><strong>Midnight Landing</strong><small>Ballads & atmosphere</small></div></div></aside></div>
+          <div class="now-grid"><article class="panel now-panel" data-searchable><div class="now-panel__art" aria-hidden="true"><img class="card__img" src="./assets/station-booth-mobile.webp" alt=""></div><div><span class="live-chip live-chip--demo"><span class="pulse-dot"></span><span data-i18n="common.demo">Demo mode</span></span><h3>Jetstream89 Engine Test</h3><p class="muted">The custom player is in demo mode. Scroll down to the Spotify section to listen to full free rock playlists on loop.</p><div class="meta-row"><span class="meta-chip">128 kbps MP3 ready</span><span class="meta-chip">Asia/Jerusalem</span><span class="meta-chip">Persistent player</span></div><div class="meter" aria-hidden="true"><span></span></div><div class="control-row"><a class="primary-button" href="#listen"><span aria-hidden="true">▶</span> <span data-i18n="hero.spotify">Listen with Spotify</span></a><a class="ghost-button" href="#requests">Request a track</a></div></div></article><aside class="panel" data-searchable><span class="eyebrow">Up next</span><h3>Progressive Altitude</h3><p class="muted">Long-form progressive rock and metal, concept albums, odd meters and stories behind ambitious records.</p><div class="schedule-mini"><div class="schedule-mini__item"><time>18:00</time><strong>Jetstream Prime</strong><small>Flagship show</small></div><div class="schedule-mini__item"><time>22:00</time><strong>Metal Afterburner</strong><small>Heavy route</small></div><div class="schedule-mini__item"><time>02:00</time><strong>Midnight Landing</strong><small>Ballads & atmosphere</small></div></div></aside></div>
         </section>
 
-        <section class="section" id="routes" aria-labelledby="routes-title"><div class="section__header"><div><span class="eyebrow">Made for Jetstreamers</span><h2 id="routes-title">Choose your flight path</h2><p>Distinct routes instead of one endless generic playlist.</p></div></div><div class="shelf" aria-label="Music routes"><article class="card" style="--card-accent:#ff2ea6" data-searchable><div class="card__art"><img class="card__img" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80" alt=""></div><button class="card__play" data-action="toggle-stream" aria-label="Play 80s Arena Rock">▶</button><h3>80s Arena Rock</h3><p>Huge choruses, polished guitars, neon stages and highway anthems.</p></article><article class="card" style="--card-accent:#27d9ff" data-searchable><div class="card__art"><img class="card__img" src="https://images.unsplash.com/photo-1508244031604-bbd7c675c960?auto=format&fit=crop&w=600&q=80" alt=""></div><button class="card__play" data-action="toggle-stream" aria-label="Play 90s Alternative">▶</button><h3>90s Alternative</h3><p>Grunge, alternative metal, industrial edges and post-grunge gravity.</p></article><article class="card" style="--card-accent:#ff6b3d" data-searchable><div class="card__art"><img class="card__img" src="https://images.unsplash.com/photo-1497906539264-b3204054a320?auto=format&fit=crop&w=600&q=80" alt=""></div><button class="card__play" data-action="toggle-stream" aria-label="Play Metal Afterburner">▶</button><h3>Metal Afterburner</h3><p>Heavy, power, classic, melodic and selected extreme-metal turbulence.</p></article><article class="card" style="--card-accent:#aa72ff" data-searchable><div class="card__art"><img class="card__img" src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=600&q=80" alt=""></div><button class="card__play" data-action="toggle-stream" aria-label="Play Progressive Altitude">▶</button><h3>Progressive Altitude</h3><p>Concept albums, suites, odd meters and patient musical exploration.</p></article><article class="card" style="--card-accent:#ffc857" data-searchable><div class="card__art"><img class="card__img" src="https://images.unsplash.com/photo-1519608487998-382448465020?auto=format&fit=crop&w=600&q=80" alt=""></div><button class="card__play" data-action="toggle-stream" aria-label="Play Midnight Landing">▶</button><h3>Midnight Landing</h3><p>Power ballads, melodic rock, late-night requests and softer landings.</p></article><article class="card" style="--card-accent:#50e69a" data-searchable><div class="card__art"><img class="card__img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt=""></div><button class="card__play" data-action="toggle-stream" aria-label="Play Crosswind">▶</button><h3>Crosswind</h3><p>Synth-pop, electronic, industrial, rap, hip-hop and genre collisions.</p></article></div></section>
+        <section class="section" id="routes" aria-labelledby="routes-title">
+          <div class="section__header">
+            <div>
+              <h2 id="routes-title" data-i18n="station.routes">Choose a music route</h2>
+              <p data-i18n="station.routesHelp">Start with a playlist or follow the story behind a sound.</p>
+            </div>
+          </div>
+          <div class="station-routes">
+            <article class="card station-route" style="--card-accent:#ff6eaf" data-searchable>
+              <div class="card__art"><img class="card__img" src="./assets/route-arena.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="station-route__copy">
+                <h3>80s Arena Rock</h3>
+                <p data-i18n="route.0.description">Huge choruses, polished guitars, neon stages and highway anthems.</p>
+                <a href="#listen" data-open-spotify="eighties"><span data-i18n="route.0.action">Open the 80s playlist</span> <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+            <article class="card station-route" style="--card-accent:#58dfff" data-searchable>
+              <div class="card__art"><img class="card__img" src="./assets/route-alternative.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="station-route__copy">
+                <h3>90s Alternative</h3>
+                <p data-i18n="route.1.description">Grunge, alternative metal, industrial edges and post-grunge gravity.</p>
+                <a href="#listen" data-open-spotify="nineties"><span data-i18n="route.1.action">Open the 90s playlist</span> <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+            <article class="card station-route" style="--card-accent:#ff9572" data-searchable>
+              <div class="card__art"><img class="card__img" src="./assets/route-metal.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="station-route__copy">
+                <h3>Metal Afterburner</h3>
+                <p data-i18n="route.2.description">Heavy, power, classic, melodic and selected extreme-metal turbulence.</p>
+                <a href="./atlas.html#heavy-metal"><span data-i18n="route.2.action">Explore heavy metal</span> <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+            <article class="card station-route" style="--card-accent:#c4a6ff" data-searchable>
+              <div class="card__art"><img class="card__img" src="./assets/route-progressive.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="station-route__copy">
+                <h3>Progressive Altitude</h3>
+                <p data-i18n="route.3.description">Concept albums, suites, odd meters and patient musical exploration.</p>
+                <a href="./atlas.html#progressive"><span data-i18n="route.3.action">Explore progressive rock</span> <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+            <article class="card station-route" style="--card-accent:#ffd98f" data-searchable>
+              <div class="card__art"><img class="card__img" src="./assets/route-midnight.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="station-route__copy">
+                <h3>Midnight Landing</h3>
+                <p data-i18n="route.4.description">Power ballads, melodic rock, late-night requests and softer landings.</p>
+                <a href="./schedule.html#midnight-landing"><span data-i18n="route.4.action">See the late-night show</span> <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+            <article class="card station-route" style="--card-accent:#88efb5" data-searchable>
+              <div class="card__art"><img class="card__img" src="./assets/route-crosswind.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="station-route__copy">
+                <h3>Crosswind</h3>
+                <p data-i18n="route.5.description">Synth-pop, electronic, industrial, rap, hip-hop and genre collisions.</p>
+                <a href="./atlas.html#modern-hybrid"><span data-i18n="route.5.action">Explore genre crossovers</span> <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+          </div>
+        </section>
 
-        <section class="section" id="listen" aria-labelledby="listen-title"><div class="section__header"><div><span class="eyebrow">Official Spotify embeds</span><h2 id="listen-title">Real music, official playback</h2><p>These players come from Spotify. Jetstream89 does not extract or rebroadcast Spotify audio.</p></div></div><div class="embed-tabs" role="tablist" aria-label="Spotify playlists"><button class="embed-tab is-active" type="button" data-spotify-playlist="classics" role="tab">Rock Classics</button><button class="embed-tab" type="button" data-spotify-playlist="eighties" role="tab">All Out 80s</button><button class="embed-tab" type="button" data-spotify-playlist="nineties" role="tab">All Out 90s</button></div><div class="spotify-embed"><iframe id="spotify-frame" title="Rock Classics on Spotify" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWXRqgorJj26U?utm_source=generator&theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div><div class="callout-band" style="margin-top:18px"><div><strong>Jack Rodríguez on Spotify</strong><p class="muted">Public profile link registered as an editorial starting point. Playlist availability depends on Jack's Spotify privacy settings.</p></div><a class="ghost-button" href="https://open.spotify.com/user/rodrijack36" target="_blank" rel="noopener noreferrer">Open profile</a></div></section>
+        <section class="section" id="listen" aria-labelledby="listen-title" tabindex="-1"><div class="section__header"><div><span class="eyebrow">Official Spotify embeds</span><h2 id="listen-title">Real music, official playback</h2><p>These players come from Spotify. Jetstream89 does not extract or rebroadcast Spotify audio.</p></div></div><div class="embed-tabs" role="group" aria-label="Spotify playlists"><button class="embed-tab is-active" type="button" data-spotify-playlist="classics" aria-pressed="true">Rock Classics</button><button class="embed-tab" type="button" data-spotify-playlist="eighties" aria-pressed="false">All Out 80s</button><button class="embed-tab" type="button" data-spotify-playlist="nineties" aria-pressed="false">All Out 90s</button></div><div class="spotify-embed"><iframe id="spotify-frame" title="Rock Classics on Spotify" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWXRqgorJj26U?utm_source=generator&theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div><div class="callout-band" style="margin-top:18px"><div><strong>Jack Rodríguez on Spotify</strong><p class="muted">Public profile link registered as an editorial starting point. Playlist availability depends on Jack's Spotify privacy settings.</p></div><a class="ghost-button" href="https://open.spotify.com/user/rodrijack36" target="_blank" rel="noopener noreferrer">Open profile</a></div></section>
 
         <section class="section" aria-labelledby="crew-title"><div class="section__header"><div><span class="eyebrow" data-i18n="crew.eyebrow">The Hangar</span><h2 id="crew-title" data-i18n="crew.title">Meet the Flight Crew</h2><p data-i18n="crew.description">Two hosts, two perspectives and one human-curated signal.</p></div><a class="link-action" href="./crew.html" data-i18n="crew.full">Open full crew profiles</a></div><div class="crew-preview"><article class="crew-profile" style="--profile-accent:#ff7847" data-searchable><div class="crew-portrait">JR</div><div><h3>Jack Rodríguez</h3><p class="crew-profile__role" data-i18n="crew.jack.role">Host · Classic Rock & Community</p><p data-i18n="crew.jack.bio">Jack Rodríguez brings classic-rock instinct, guest relationships, interviews and the energy of The Rock Drive. His public Spotify profile is the starting point for future editorial playlist research.</p><div class="tag-list"><span>Classic Rock</span><span>80s / 90s</span><span>Interviews</span></div></div></article><article class="crew-profile" style="--profile-accent:#33ddff" data-searchable><div class="crew-portrait">KC</div><div><h3>Kevin Cusnir</h3><p class="crew-profile__role" data-i18n="crew.kevin.role">Host · Technology & Music Discovery</p><p data-i18n="crew.kevin.bio">Kevin Cusnir shapes Jetstream89's product, visual identity, bilingual experience and Nova Music Lab. His route crosses rock, metal, progressive music, technology, data and musical storytelling.</p><div class="tag-list"><span>Heavy Metal</span><span>Progressive</span><span>Music Tech</span></div></div></article></div></section>
 
@@ -97,7 +165,7 @@
     </div>
   </div>
 
-  <div class="player" role="region" aria-label="Persistent Jetstream89 player"><div class="player__track"><div class="player__art"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=100&q=80" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" alt=""></div><div><strong>Jetstream89 Engine Test</strong><small id="stream-status">Demo mode · stream not connected</small></div></div><div class="player__controls"><button class="icon-button" type="button" aria-label="Previous demo item">‹</button><button class="player__play" type="button" data-action="toggle-stream" aria-label="Play Jetstream89"><span data-play-icon>▶</span></button><button class="icon-button" type="button" aria-label="Next demo item">›</button></div><div class="player__extras"><span>Volume</span><input id="volume" type="range" min="0" max="1" step="0.05" value="0.75" aria-label="Volume"></div></div>
+  <div class="player" role="region" aria-label="Persistent Jetstream89 player"><div class="player__track"><div class="player__art"><img src="./assets/station-booth-mobile.webp" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" alt=""></div><div><strong>Jetstream89 Engine Test</strong><small id="stream-status">Demo mode · stream not connected</small></div></div><div class="player__controls"><button class="icon-button" type="button" data-playlist-step="-1" aria-label="Previous Spotify playlist">‹</button><button class="player__play" type="button" data-action="toggle-stream" aria-label="Open Jetstream89 listening options"><span data-play-icon>▶</span></button><button class="icon-button" type="button" data-playlist-step="1" aria-label="Next Spotify playlist">›</button></div><div class="player__extras"><span>Volume</span><input id="volume" type="range" min="0" max="1" step="0.05" value="0.75" aria-label="Volume"></div></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div><audio id="radio-audio" preload="none"></audio><script src="./assets/app.js" defer></script><script src="./assets/v2.js" defer></script>
 </body>
 </html>

@@ -17,7 +17,16 @@
 
 | Desktop | Phone |
 |---|---|
+| <img src="docs/screenshots/station-frontpage-desktop.jpg" width="560" alt="Jetstream89's late-night radio studio cover, with visible Spotify and station-ident links" /> | <img src="docs/screenshots/station-frontpage-mobile.jpg" width="220" alt="The Spanish Jetstream89 home on a 390-pixel phone with quick navigation and two listening links" /> |
+
+<details>
+<summary>Earlier Flight Crew interface</summary>
+
+| Desktop | Phone |
+|---|---|
 | <img src="docs/screenshots/jetstream89-desktop.jpg" width="560" alt="Jetstream89 home on desktop in Spanish: sidebar with station routes, the JETSTREAM89 wordmark, the Turn up, take flight tagline and the play button over a neon circuit-board background" /> | <img src="docs/screenshots/jetstream89-mobile.jpg" width="220" alt="Jetstream89 home on a 375 pixel phone screen: the full wordmark, tagline, description and stacked play, Spotify and schedule buttons fit the screen" /> |
+
+</details>
 
 ## ✈️ What Jetstream89 is
 
