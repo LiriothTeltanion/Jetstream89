@@ -64,8 +64,7 @@ async function toggleStream() {
   if (!audio) return;
   if (!CONFIG.streamUrl) {
     if (openSpotifySection()) return;
-    if (streamStatus) streamStatus.textContent = "Demo mode · stream not connected";
-    showToast("The interface is ready. Add a legal Icecast/AzuraCast stream URL in assets/app.js.");
+    location.assign("./index.html#listen");
     return;
   }
 
@@ -129,6 +128,12 @@ window.setInterval(updateClocks, 30000);
 
 const spotifyFrame = $("#spotify-frame");
 const playlistButtons = $$("[data-spotify-playlist]");
+const spotifyEmbed = $("#spotify-embed");
+const spotifyLoad = $("#spotify-load");
+const spotifyDirect = $("#spotify-direct");
+const playlistTitle = $("#selected-playlist");
+let activePlaylist = playlistButtons.find((button) => button.getAttribute("aria-pressed") === "true");
+let embedOpen = false;
 
 function openSpotifySection() {
   const listen = $("#listen");
@@ -141,14 +146,43 @@ function openSpotifySection() {
 
 function selectSpotifyPlaylist(button) {
   const playlistId = CONFIG.spotifyPlaylists[button.dataset.spotifyPlaylist];
-  if (!spotifyFrame || !playlistId || button.classList.contains("is-active")) return;
+  if (!spotifyFrame || !playlistId || button === activePlaylist) return;
+  activePlaylist = button;
 
   for (const item of playlistButtons) {
     item.classList.toggle("is-active", item === button);
     item.setAttribute("aria-pressed", String(item === button));
   }
-  spotifyFrame.src = `https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator&theme=0`;
-  spotifyFrame.title = `${button.textContent.trim()} on Spotify`;
+  updateSpotifyPlayer();
+}
+
+function updateSpotifyPlayer() {
+  if (!spotifyFrame || !activePlaylist) return;
+  const playlistId = CONFIG.spotifyPlaylists[activePlaylist.dataset.spotifyPlaylist];
+  const title = activePlaylist.querySelector("strong")?.textContent ?? activePlaylist.textContent.trim();
+  const playerUrl = `https://open.spotify.com/embed/playlist/${playlistId}?theme=0`;
+  if (playlistTitle) playlistTitle.textContent = title;
+  if (spotifyDirect) spotifyDirect.href = `https://open.spotify.com/playlist/${playlistId}`;
+  spotifyFrame.title = `${title} ${document.documentElement.lang === "es" ? "en" : "on"} Spotify`;
+  if (embedOpen && spotifyFrame.src !== playerUrl) spotifyFrame.src = playerUrl;
+  if (!embedOpen) spotifyFrame.removeAttribute("src");
+  if (spotifyEmbed) spotifyEmbed.hidden = !embedOpen;
+  if (spotifyLoad) {
+    const locale = document.documentElement.lang === "es" ? "es" : "en";
+    spotifyLoad.dataset.i18n = embedOpen ? "desk.listen.unload" : "desk.listen.load";
+    spotifyLoad.textContent = copy[locale][spotifyLoad.dataset.i18n];
+    spotifyLoad.setAttribute("aria-expanded", String(embedOpen));
+  }
+}
+
+if (spotifyLoad) {
+  spotifyLoad.hidden = false;
+  $("#desk-playlists").hidden = false;
+  spotifyLoad.addEventListener("click", () => {
+    embedOpen = !embedOpen;
+    updateSpotifyPlayer();
+  });
+  document.addEventListener("jetstream-locale", updateSpotifyPlayer);
 }
 
 playlistButtons.forEach((button) => {
@@ -160,7 +194,9 @@ $$("[data-open-spotify]").forEach((link) => {
     if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     const button = playlistButtons.find((item) => item.dataset.spotifyPlaylist === link.dataset.openSpotify);
     if (!button) return;
+    event.preventDefault();
     selectSpotifyPlaylist(button);
+    openSpotifySection();
     requestAnimationFrame(() => button.focus({ preventScroll: true }));
   });
 });

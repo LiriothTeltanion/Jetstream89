@@ -15,9 +15,18 @@
 
 ## 📸 Screenshots
 
+| Listening Desk · Desktop | Listening Desk · Phone |
+|---|---|
+| <img src="docs/screenshots/listening-desk-desktop.jpg" width="560" alt="Jetstream89 listening desk with a studio microphone, a warm orange headline and three Spotify playlist choices" /> | <img src="docs/screenshots/listening-desk-mobile.jpg" width="220" alt="Spanish Jetstream89 home on a phone with navigation, playlist and discovery links" /> |
+
+<details>
+<summary>Earlier station front page</summary>
+
 | Desktop | Phone |
 |---|---|
 | <img src="docs/screenshots/station-frontpage-desktop.jpg" width="560" alt="Jetstream89's late-night radio studio cover, with visible Spotify and station-ident links" /> | <img src="docs/screenshots/station-frontpage-mobile.jpg" width="220" alt="The Spanish Jetstream89 home on a 390-pixel phone with quick navigation and two listening links" /> |
+
+</details>
 
 <details>
 <summary>Earlier Flight Crew interface</summary>
@@ -44,6 +53,14 @@ Jetstream89 combines a Spotify/TIDAL-inspired interface with the identity of an 
 The current release is a **static, GitHub Pages-compatible prototype**. It provides legal Spotify playback through official embeds and a truthful demo player. It does **not** yet transmit a synchronized Jetstream89 live stream.
 
 ## 🚀 Flight Crew v2
+
+### Listening Desk
+
+The first screen leads to a playlist or a discovery route. The Listening Room loads a [Spotify Embed](https://developer.spotify.com/documentation/embeds) only when asked. Direct links work without JavaScript. The Guide gives station and visitor times, including Jerusalem daylight-saving changes, and marks shows as editorial plans. The original studio art and four local Merch Lab images are illustrations for this prototype. Favorites and reversible merch interest use browser storage.
+
+The presentation of planned shows by day and station time follows an established radio convention. [KEXP schedule](https://www.kexp.org/schedule/)
+
+Run `npm test` for local preference and schedule conversion checks. The GitHub Pages validation job also checks the JavaScript and static links.
 
 Version 2 expands the original cockpit into a more complete station universe:
 
