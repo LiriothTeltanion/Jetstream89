@@ -2,6 +2,12 @@
 
 All notable Jetstream89 changes are recorded here. The project follows a simple semantic-versioning direction while it remains a prototype.
 
+## Share previews - 2026-11-12
+
+- Show a 1200 × 630 preview card when a page link is shared in WhatsApp, Telegram, X or LinkedIn (Open Graph and Twitter card tags on all seven public pages).
+- Add a 180 × 180 home-screen icon for iPhone and iPad.
+- Keep the card source in `docs/social/card.html` and re-render it with `docs/social/render.mjs`.
+
 ## Listening Desk - 2026-11-12
 
 - Open the official Spotify player on request, with direct playlist links available without JavaScript.

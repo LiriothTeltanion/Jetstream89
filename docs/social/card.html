@@ -1,0 +1,37 @@
+<!doctype html>
+<!-- Source of assets/social/jetstream89-og.jpg (1200 × 630). Re-render with docs/social/render.mjs. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800;900&family=JetBrains+Mono:wght@700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #05070d; }
+  .card { position: relative; width: 1200px; height: 630px; color: #f6f7fb; font-family: Inter, sans-serif; }
+  .card::before { content: ""; position: absolute; inset: 0; background: url("../../assets/station-booth.webp") center / cover; }
+  .card::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(4, 6, 11, .97) 0%, rgba(4, 6, 11, .86) 46%, rgba(4, 6, 11, .2) 100%),
+                radial-gradient(circle at 18% 88%, rgba(255, 62, 181, .28), transparent 40%); }
+  .content { position: absolute; z-index: 1; inset: 64px 72px; display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 18px; }
+  .brand img { width: 76px; height: 76px; }
+  .pill { font: 700 20px "JetBrains Mono", monospace; letter-spacing: .14em; color: #ffd166; text-transform: uppercase; }
+  h1 { margin: auto 0 0; font: 900 120px/0.9 Inter, sans-serif; letter-spacing: -.07em; text-transform: uppercase; }
+  h1 span { color: #ff3eb5; }
+  .tagline { margin-top: 18px; font: 700 44px "Space Grotesk", sans-serif; letter-spacing: -.02em; }
+  .meta { margin-top: 22px; font: 600 26px Inter, sans-serif; color: #c9d2e6; }
+  .bar { position: absolute; z-index: 1; left: 0; right: 0; bottom: 0; height: 10px;
+    background: linear-gradient(90deg, #33ddff, #ff3eb5, #ffd166); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="content">
+      <div class="brand"><img src="../../assets/logo.svg" alt=""><span class="pill">Online rock radio</span></div>
+      <h1>Jetstream<span>89</span></h1>
+      <p class="tagline">Turn up. Take flight.</p>
+      <p class="meta">80s &amp; 90s rock · listening routes · English &amp; Español</p>
+    </div>
+    <div class="bar"></div>
+  </div>
+</body>
+</html>
