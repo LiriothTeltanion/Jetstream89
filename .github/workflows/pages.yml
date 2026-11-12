@@ -33,7 +33,7 @@ jobs:
           python - <<'PY'
           from html.parser import HTMLParser
           from pathlib import Path
-          from urllib.parse import urlsplit
+          from urllib.parse import unquote, urlsplit
 
           root = Path('.').resolve()
           required = [
@@ -64,11 +64,16 @@ jobs:
                   super().__init__()
                   self.page = page
                   self.links: list[str] = []
+                  self.ids: set[str] = set()
 
               def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+                  attributes = dict(attrs)
+                  if element_id := attributes.get('id'):
+                      self.ids.add(element_id)
+                  if tag == 'source' and (srcset := attributes.get('srcset')):
+                      self.links.extend(item.split()[0] for item in srcset.split(',') if item.strip())
                   if tag not in {'a', 'img', 'link', 'script', 'iframe'}:
                       return
-                  attributes = dict(attrs)
                   value = attributes.get('href') or attributes.get('src')
                   if value:
                       self.links.append(value)
@@ -79,6 +84,7 @@ jobs:
           if not html_pages:
               raise SystemExit('No HTML pages found.')
 
+          parsed_pages: dict[Path, LinkParser] = {}
           for page in html_pages:
               text = page.read_text(encoding='utf-8')
               if forbidden_brand in text or forbidden_brand_upper in text:
@@ -86,20 +92,18 @@ jobs:
 
               parser = LinkParser(page)
               parser.feed(text)
+              parsed_pages[page] = parser
 
+          for page, parser in parsed_pages.items():
               for raw_link in parser.links:
                   link = raw_link.strip()
-                  if not link or link.startswith(('#', 'mailto:', 'tel:', 'javascript:', 'data:')):
+                  if not link or link.startswith(('mailto:', 'tel:', 'javascript:', 'data:')):
                       continue
                   split = urlsplit(link)
                   if split.scheme or split.netloc:
                       continue
 
-                  relative = split.path
-                  if not relative:
-                      continue
-
-                  target = (page.parent / relative).resolve()
+                  target = (page.parent / unquote(split.path)).resolve() if split.path else page
                   try:
                       target.relative_to(root)
                   except ValueError as exc:
@@ -107,6 +111,8 @@ jobs:
 
                   if not target.exists():
                       raise SystemExit(f'Broken local link in {page.name}: {link}')
+                  if split.fragment and target in parsed_pages and unquote(split.fragment) not in parsed_pages[target].ids:
+                      raise SystemExit(f'Missing local anchor in {page.name}: {link}')
 
               print(f'Validated {page.name} ({len(parser.links)} links)')
 

@@ -63,6 +63,7 @@ function setPlayState(isPlaying) {
 async function toggleStream() {
   if (!audio) return;
   if (!CONFIG.streamUrl) {
+    if (openSpotifySection()) return;
     if (streamStatus) streamStatus.textContent = "Demo mode · stream not connected";
     showToast("The interface is ready. Add a legal Icecast/AzuraCast stream URL in assets/app.js.");
     return;
@@ -127,15 +128,50 @@ updateClocks();
 window.setInterval(updateClocks, 30000);
 
 const spotifyFrame = $("#spotify-frame");
-$$('[data-spotify-playlist]').forEach((button) => {
+const playlistButtons = $$("[data-spotify-playlist]");
+
+function openSpotifySection() {
+  const listen = $("#listen");
+  if (!listen) return false;
+  if (location.hash !== "#listen") location.hash = "listen";
+  listen.scrollIntoView({ block: "start" });
+  listen.focus({ preventScroll: true });
+  return true;
+}
+
+function selectSpotifyPlaylist(button) {
+  const playlistId = CONFIG.spotifyPlaylists[button.dataset.spotifyPlaylist];
+  if (!spotifyFrame || !playlistId || button.classList.contains("is-active")) return;
+
+  for (const item of playlistButtons) {
+    item.classList.toggle("is-active", item === button);
+    item.setAttribute("aria-pressed", String(item === button));
+  }
+  spotifyFrame.src = `https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator&theme=0`;
+  spotifyFrame.title = `${button.textContent.trim()} on Spotify`;
+}
+
+playlistButtons.forEach((button) => {
+  button.addEventListener("click", () => selectSpotifyPlaylist(button));
+});
+
+$$("[data-open-spotify]").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    const button = playlistButtons.find((item) => item.dataset.spotifyPlaylist === link.dataset.openSpotify);
+    if (!button) return;
+    selectSpotifyPlaylist(button);
+    requestAnimationFrame(() => button.focus({ preventScroll: true }));
+  });
+});
+
+$$("[data-playlist-step]").forEach((button) => {
   button.addEventListener("click", () => {
-    $$('[data-spotify-playlist]').forEach((item) => item.classList.remove("is-active"));
-    button.classList.add("is-active");
-    const key = button.dataset.spotifyPlaylist;
-    const playlistId = CONFIG.spotifyPlaylists[key];
-    if (!spotifyFrame || !playlistId) return;
-    spotifyFrame.src = `https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator&theme=0`;
-    spotifyFrame.title = `${button.textContent.trim()} on Spotify`;
+    if (!playlistButtons.length) return;
+    const active = playlistButtons.findIndex((item) => item.classList.contains("is-active"));
+    const next = (active + Number(button.dataset.playlistStep) + playlistButtons.length) % playlistButtons.length;
+    selectSpotifyPlaylist(playlistButtons[next]);
+    openSpotifySection();
   });
 });
 
