@@ -13,6 +13,12 @@
   <a href="studio.html">Station Studio</a>
 </p>
 
+## 📸 Screenshots
+
+| Desktop | Phone |
+|---|---|
+| <img src="docs/screenshots/jetstream89-desktop.jpg" width="560" alt="Jetstream89 home on desktop in Spanish: sidebar with station routes, the JETSTREAM89 wordmark, the Turn up, take flight tagline and the play button over a neon circuit-board background" /> | <img src="docs/screenshots/jetstream89-mobile.jpg" width="220" alt="Jetstream89 home on a 375 pixel phone screen: the full wordmark, tagline, description and stacked play, Spotify and schedule buttons fit the screen" /> |
+
 ## ✈️ What Jetstream89 is
 
 Jetstream89 combines a Spotify/TIDAL-inspired interface with the identity of an independent online station centered on:
@@ -192,7 +198,7 @@ https://liriothteltanion.github.io/Jetstream89/
 - **Product, visual identity and development:** Kevin Cusnir
 - **Creative signature:** Lirioth Teltanion
 
-Built with AI-assisted tooling; Kevin reviewed, tested and can explain every change.
+Built with AI-assisted tooling; I reviewed, tested and can explain every change.
 
 ## 📄 License
 

@@ -1357,7 +1357,8 @@ a {
   }
 
   .hero h1 {
-    font-size: clamp(3.3rem, 20vw, 5.2rem);
+    /* 12.5vw keeps the single-word wordmark inside a 360-375 px phone screen. */
+    font-size: clamp(2.4rem, 12.5vw, 5.2rem);
   }
 
   .hero__art {

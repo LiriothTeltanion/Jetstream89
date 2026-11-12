@@ -612,7 +612,8 @@ body[data-density="compact"] .studio-card {
 
 @media (max-width: 1180px) {
   .hero--v2 {
-    grid-template-columns: 1fr;
+    /* minmax(0, 1fr) lets the column shrink below the title's longest word on phones. */
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .hero__art--flightdeck {
